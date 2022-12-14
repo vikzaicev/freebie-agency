@@ -36,16 +36,17 @@ if (animItems.length > 0) {
 }
 
 /*====================hamb==========================*/
-
 const menu = document.querySelector('.menu__list');
 const hamb = document.querySelector('.header__hamb');
 const body = document.querySelector('body');
 const popup = document.querySelector('.header__popup');
-console.log(hamb, popup, menu);
 
 popup.append(menu.cloneNode(1));
 
 hamb.addEventListener('click', hamburger);
+// document.addEventListener('click', (event) => {
+//   console.log(event.target);
+//       })
 
 function hamburger() {
    hamb.classList.toggle('active');
@@ -53,25 +54,36 @@ function hamburger() {
    body.classList.toggle('noscrol');
 };
 
-// document.addEventListener('click', event => {
-//    if(event.target.contains('.header__hamb')) {
-//       hamb.classList.toggle('active');
-//    popup.classList.toggle('open');
-//    body.classList.toggle('noscrol');
-//    }
-//    if(!event.target.contains('.header__popup')) {
-//       hamb.classList.remove('active');
-//       popup.classList.remove('open');
-//       body.classList.remove('noscrol');
-//    }
-// })
+popup.querySelectorAll('.menu__link').forEach(link => {
+   link.addEventListener('click', () => {
+      hamb.classList.remove('active');
+      popup.classList.remove('open');
+      body.classList.remove('noscrol');
+   })
+})
+
+/*===============scroll===================================*/
+const anchors = document.querySelectorAll('a[href*="#"]')
+
+anchors.forEach(anchor => {
+   anchor.addEventListener('click', event => {
+      event.preventDefault()
+
+      const blokId = anchor.getAttribute('href').substring(1)
+
+      document.getElementById(blokId).scrollIntoView({
+         behavior: "smooth",
+         block: "start"
+      })
+   })
+})
 
 /*===============numbs===================================*/
 const numbs = document.querySelectorAll('.header__numbr');
 if (numbs.length > 0) {
    for (let index = 0; index < numbs.length; index++) {
       const numb = numbs[index];
-      
+
       numb.addEventListener("click", numbActiv);
 
       function numbActiv() {
@@ -83,7 +95,20 @@ if (numbs.length > 0) {
       }
    }
 }
+/*===============tab===================================*/
+const items = document.querySelectorAll('.contact__item');
+for (let index = 0; index < items.length; index++) {
+   const item = items[index];
 
+   item.addEventListener("click", numbActiv);
+
+   function numbActiv() {
+      items.forEach(element => {
+         element.classList.remove('active')
+      });
+      item.classList.add('active')
+   }
+}
 /*=================slider==================*/
 const prevBtn = document.querySelector('.prev')
 const nextBtn = document.querySelector('.next')
@@ -122,3 +147,4 @@ function showNewSlide(direction) {
    slide[currentIndex].setAttribute("data-activ", "activ")
    slide[currentIndex].classList.remove('none')
 }
+
