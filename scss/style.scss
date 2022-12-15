@@ -188,7 +188,7 @@ main {
 		color: rgba(255, 255, 255, 0.437245);
 		z-index: 2;
 		cursor: pointer;
-		transition: all 0.3s ease 0s;
+		transition: all 0.1s ease 0s;
 	}
 
 	&__numbr:not(:last-child) {
@@ -435,12 +435,18 @@ main {
 		min-width: 220px;
 		padding: 50px 43px 35px;
 		background-color: #fff;
+		transform: rotate3d(-2, -1, 0, 90deg);
+		transition: all 0.5s ease 0.1s;
 		@media (max-width: 1023.98px) {
 			padding: 20px;
 		}
 		@media (max-width: 767.98px) {
 			padding: 15px;
 		}
+	}
+
+	&__item.amim-items.active {
+		transform: rotate3d(1, 1, 1, 0deg);
 	}
 	&__item:not(:last-child) {
 		@media (max-width: 700.98px) {
@@ -518,9 +524,15 @@ main {
 	font-size: 48px;
 	line-height: 71px;
 	letter-spacing: 3.072px;
+	transform: scale(0.8);
+	transition: all 0.3s ease 0.3s;
 	@media (max-width: 767.98px) {
 		font-size: 40px;
 	}
+}
+
+.title.active {
+	transform: scale(1);
 }
 
 .title::after {
@@ -596,9 +608,15 @@ main {
 		letter-spacing: 0.832px;
 		mix-blend-mode: normal;
 		opacity: 0.3;
+		color: #252525;
+		transition: all 0.3s ease 0s;
 		@media (max-width: 470.98px) {
 			font-size: 12px;
 		}
+	}
+	&__link:hover {
+		opacity: 1;
+		text-decoration: underline;
 	}
 }
 
@@ -768,12 +786,17 @@ main {
 		min-width: 200px;
 		max-width: 370px;
 		margin: 14px;
+		transform: rotate3d(-2, -1, 0, 90deg);
+		transition: all 0.5s ease 0.1s;
 		@media (max-width: 700.98px) {
 			min-width: 240px;
 		}
 		@media (max-width: 550.98px) {
 			min-width: 270px;
 		}
+	}
+	&__item.amim-items.active {
+		transform: rotate3d(1, 1, 1, 0deg);
 	}
 
 	&__body {
@@ -1011,6 +1034,9 @@ main {
 		letter-spacing: 0.1667rem;
 		color: inherit;
 		margin-bottom: 1.5rem;
+	}
+	&__link {
+		color: inherit;
 	}
 
 	&__text {

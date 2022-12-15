@@ -356,9 +356,9 @@ main {
   color: rgba(255, 255, 255, 0.437245);
   z-index: 2;
   cursor: pointer;
-  -webkit-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
-  transition: all 0.3s ease 0s;
+  -webkit-transition: all 0.1s ease 0s;
+  -o-transition: all 0.1s ease 0s;
+  transition: all 0.1s ease 0s;
 }
 
 .header__numbr:not(:last-child) {
@@ -701,6 +701,11 @@ main {
   min-width: 220px;
   padding: 50px 43px 35px;
   background-color: #fff;
+  -webkit-transform: rotate3d(-2, -1, 0, 90deg);
+          transform: rotate3d(-2, -1, 0, 90deg);
+  -webkit-transition: all 0.5s ease 0.1s;
+  -o-transition: all 0.5s ease 0.1s;
+  transition: all 0.5s ease 0.1s;
 }
 
 @media (max-width: 1023.98px) {
@@ -713,6 +718,11 @@ main {
   .services__item {
     padding: 15px;
   }
+}
+
+.services__item.amim-items.active {
+  -webkit-transform: rotate3d(1, 1, 1, 0deg);
+          transform: rotate3d(1, 1, 1, 0deg);
 }
 
 @media (max-width: 700.98px) {
@@ -815,12 +825,24 @@ main {
   font-size: 48px;
   line-height: 71px;
   letter-spacing: 3.072px;
+  -webkit-transform: scale(0.8);
+      -ms-transform: scale(0.8);
+          transform: scale(0.8);
+  -webkit-transition: all 0.3s ease 0.3s;
+  -o-transition: all 0.3s ease 0.3s;
+  transition: all 0.3s ease 0.3s;
 }
 
 @media (max-width: 767.98px) {
   .title {
     font-size: 40px;
   }
+}
+
+.title.active {
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
 }
 
 .title::after {
@@ -924,12 +946,21 @@ main {
   letter-spacing: 0.832px;
   mix-blend-mode: normal;
   opacity: 0.3;
+  color: #252525;
+  -webkit-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
 }
 
 @media (max-width: 470.98px) {
   .works__link {
     font-size: 12px;
   }
+}
+
+.works__link:hover {
+  opacity: 1;
+  text-decoration: underline;
 }
 
 .item {
@@ -1144,6 +1175,11 @@ main {
   min-width: 200px;
   max-width: 370px;
   margin: 14px;
+  -webkit-transform: rotate3d(-2, -1, 0, 90deg);
+          transform: rotate3d(-2, -1, 0, 90deg);
+  -webkit-transition: all 0.5s ease 0.1s;
+  -o-transition: all 0.5s ease 0.1s;
+  transition: all 0.5s ease 0.1s;
 }
 
 @media (max-width: 700.98px) {
@@ -1156,6 +1192,11 @@ main {
   .team__item {
     min-width: 270px;
   }
+}
+
+.team__item.amim-items.active {
+  -webkit-transform: rotate3d(1, 1, 1, 0deg);
+          transform: rotate3d(1, 1, 1, 0deg);
 }
 
 .team__body {
@@ -1493,6 +1534,10 @@ main {
   letter-spacing: 0.1667rem;
   color: inherit;
   margin-bottom: 1.5rem;
+}
+
+.contact__link {
+  color: inherit;
 }
 
 .contact__text {
